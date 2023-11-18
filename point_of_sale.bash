@@ -27,21 +27,39 @@ printOptions() {
 }
 
 processSale() {
-    
-    local choice=$1
+
+    choice=$1
     price=0
+    fruitName=""
 
     case $choice in
-        1) price=$apple_price ;;
-        2) price=$banana_price ;;
-        3) price=$orange_price ;;
-        4) price=$kiwi_price ;;
-        5) price=$watermelon_price ;;
-        *) echo "Invalid choice. Please enter a number between 1 and 6." ;;
+        1)
+            price=$apple_price
+            fruitName="Apple"
+            ;;
+        2)
+            price=$banana_price
+            fruitName="Banana"
+            ;;
+        3)
+            price=$orange_price
+            fruitName="Orange"
+            ;;
+        4)
+            price=$kiwi_price
+            fruitName="Kiwi"
+            ;;
+        5)
+            price=$watermelon_price
+            fruitName="Watermelon"
+            ;;
+        *)
+            echo "Invalid choice. Please enter a number between 1 and 5."
+            ;;
     esac
 
     if [ $price -gt 0 ]; then
-        echo "* Fruit Selected (price: $price) *"
+        echo "* $fruitName Selected (price: $price) *"
         echo "- Enter quantity:"
         read fruitQuantity
 
